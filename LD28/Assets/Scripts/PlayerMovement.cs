@@ -19,8 +19,13 @@ public class PlayerMovement : MonoBehaviour
 	// If velocity magnitude is below this, set velocity to 0.
 	public const float VelocityThreshold = 0.01f;
 
+	public AudioSource crashSfx;
+	public AudioSource roadKillSfx;
+	public AudioSource brakesSfx;
+
 	private CharacterController controller;
 	private Vector3 velocity;
+	private bool playBrakes = false;
 
 	// Use this for initialization
 	void Start()
@@ -58,7 +63,19 @@ public class PlayerMovement : MonoBehaviour
 		velocity *= slowRate;
 
 		if (Input.GetButton("Brake"))
+		{
 			velocity *= brakeRate;
+			if (!brakesSfx.isPlaying && !playBrakes)
+			{
+				brakesSfx.volume = controller.velocity.magnitude / 10f * 1f;
+				brakesSfx.Play();
+				playBrakes = true;
+			}
+		}
+		else
+		{
+			playBrakes = false;
+		}
 
 		if (velocity.magnitude <= VelocityThreshold)
 			velocity = Vector3.zero;
@@ -82,18 +99,22 @@ public class PlayerMovement : MonoBehaviour
 		if (hit.gameObject.tag == "Npc")
 		{
 			if (controller.velocity.magnitude > 7.5f)
+			{
 				hit.gameObject.SendMessage("RoadKilled", SendMessageOptions.DontRequireReceiver);
+				roadKillSfx.Play();
+			}
 		}
-			
 
 		// We don't want the ground to interfere with collisions.
 		if (hit.gameObject.tag != "Ground")
 		{
-			Debug.Log("Velocity: " + controller.velocity.magnitude);
+			if (!crashSfx.isPlaying)
+			{
+				crashSfx.volume = controller.velocity.magnitude / 15f * 1f;
+				crashSfx.Play();
+			}
+			//Debug.Log("Velocity: " + controller.velocity.magnitude);
 			velocity *= collisionSlow;
-			// Will Add audio for collision later...
-			// if (hit.relativeVelocity.magnitude > 2)
-	//			audio.Play();
 		}
 	}
 

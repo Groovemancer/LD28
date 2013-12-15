@@ -8,6 +8,7 @@ public class RoadKill : MonoBehaviour {
 	void RoadKilled()
 	{
 		GameObject.Instantiate(npcDead, gameObject.transform.position, gameObject.transform.GetChild(0).transform.rotation);
+		GameObject.FindGameObjectWithTag("Game").SendMessage("IncreaseCasualties", SendMessageOptions.DontRequireReceiver);
 		Destroy(gameObject);
 	}
 }

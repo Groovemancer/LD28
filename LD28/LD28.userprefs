@@ -1,10 +1,18 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerMovement.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameSystem.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlayerMovement.cs" Line="105" Column="20" />
-      <File FileName="Assets\Scripts\RandomMovement.cs" Line="29" Column="4" />
-      <File FileName="Assets\Scripts\RoadKill.cs" Line="9" Column="3" />
+      <File FileName="Assets\Scripts\PedSpawn.cs" Line="15" Column="56" />
+      <File FileName="Assets\Scripts\PlayerMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\RandomMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\RoadKill.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CarMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerCarHorn.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameSystem.cs" Line="23" Column="7" />
+      <File FileName="Assets\Scripts\ReachedGoal.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ScreenFadeInOut.cs" Line="19" Column="3" />
+      <File FileName="Assets\Scripts\GameOverScreen.cs" Line="53" Column="48" />
+      <File FileName="Assets\Scripts\MainMenu.cs" Line="29" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

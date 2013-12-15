@@ -42,4 +42,14 @@ public class RandomMovement : MonoBehaviour
 			velocity = Vector3.zero;
 		rigidbody.velocity = velocity;
 	}
+
+	private void MoveAway(Rigidbody source)
+	{
+		Vector3 diff = transform.position - (source.position);
+		diff.Normalize();
+		velocity = new Vector3(Random.Range(0.5f, 1f) * diff.x, 0f, Random.Range(0.5f, 1f) * diff.z) * speed * 2;
+		rigidbody.velocity = velocity;
+		time = 0f;
+		duration = 3f;
+	}
 }
